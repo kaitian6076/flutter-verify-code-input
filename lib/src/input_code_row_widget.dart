@@ -22,16 +22,16 @@ class _InputRowWidgetState extends State<InputRowWidget> {
       // the display text
       if (i < widget.inputCode.length) {
         _text = widget.inputCode.substring(i, i + 1);
-        _isFocusedUnderline = true;
       } else {
         _text = "";
-        _isFocusedUnderline = false;
       }
 
-      // whether to show cursor
+      // whether to focused
       if (i == widget.inputCode.length) {
+        _isFocusedUnderline = true;
         _isShowCursor = true;
       } else {
+        _isFocusedUnderline = false;
         _isShowCursor = false;
       }
 
