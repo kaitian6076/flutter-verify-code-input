@@ -1,7 +1,7 @@
 name: verify_code_input
 description: A verification code input widget.
 version: 1.0.0
-author: kaitian6076
+#author: kaitian6076
 homepage: https://github.com/kaitian6076/flutter-verify-code-input
 
 environment:
