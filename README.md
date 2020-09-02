@@ -9,10 +9,10 @@ A verification code input widget.
 ## Usage
 
 ```dart
-	VerifyCodeInput(
-        onComplete: (String value) {
-            print('Your input code is : $value');
-        },
-    )
+VerifyCodeInput(
+    onComplete: (String value) {
+       print('Your input code is : $value');
+    },
+)
 ```
 
