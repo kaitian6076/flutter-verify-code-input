@@ -1,3 +1,2 @@
-## [0.0.1] - TODO: Add release date.
-
-* TODO: Describe initial release.
+#### [1.0.0] - 2020.09.02
+* Initialize the project, create a verification code input widget.

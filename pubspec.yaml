@@ -1,8 +1,8 @@
 name: verify_code_input
-description: A new Flutter package.
-version: 0.0.1
-author:
-homepage:
+description: A verification code input widget.
+version: 1.0.0
+author: kaitian6076
+homepage: https://github.com/kaitian6076/flutter-verify-code-input
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
