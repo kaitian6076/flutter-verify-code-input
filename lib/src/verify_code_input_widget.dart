@@ -40,49 +40,53 @@ class _VerifyCodeInputState extends State<VerifyCodeInput> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: <Widget>[
-        // The widget that the verification code display
-        InputRowWidget(
-          inputCode: _inputCode,
-        ),
-        Opacity(
-          opacity: 0.0,
-          child: TextField(
-            style: TextStyle(color: Colors.transparent, fontSize: 0),
-            // only digits
-            inputFormatters: [WhitelistingTextInputFormatter(RegExp(r"[0-9]"))],
-            keyboardType: TextInputType.number,
-            focusNode: _focusNode,
-            controller: _controller,
-            maxLength: 6,
-            onChanged: (String value) {
-              _inputCode = value;
+    return Container(
+      height: 45,
+      child: Stack(
+        alignment: AlignmentDirectional.centerStart,
+        children: <Widget>[
+          // The widget that the verification code display
+          InputRowWidget(
+            inputCode: _inputCode,
+          ),
+          Opacity(
+            opacity: 0.0,
+            child: TextField(
+              style: TextStyle(color: Colors.transparent, fontSize: 0),
+              // only digits
+              inputFormatters: [WhitelistingTextInputFormatter(RegExp(r"[0-9]"))],
+              keyboardType: TextInputType.number,
+              focusNode: _focusNode,
+              controller: _controller,
+              maxLength: 6,
+              onChanged: (String value) {
+                _inputCode = _controller.text;
 
-              if (widget.onValueChanged != null) {
-                widget.onValueChanged(value);
-              }
+                if (widget.onValueChanged != null) {
+                  widget.onValueChanged(_inputCode);
+                }
 
-              if (value.length < 6) {
-                _temp = 0;
-              } else if (value.length == 6) {
-                // dismiss the keyboard
-                _focusNode.unfocus();
-                _temp++;
-                if (_temp == 1) {
-                  // print('verificationCode---' + value);
+                if (_inputCode.length < 6) {
+                  _temp = 0;
+                } else if (_inputCode.length == 6) {
+                  // dismiss the keyboard
+                  _focusNode.unfocus();
+                  _temp++;
+                  if (_temp == 1) {
+                    // print('verificationCode---' + _inputCode);
 
-                  if (widget.onComplete != null) {
-                    widget.onComplete(value);
+                    if (widget.onComplete != null) {
+                      widget.onComplete(_inputCode);
+                    }
                   }
                 }
-              }
 
-              setState(() {});
-            },
-          ),
-        )
-      ],
+                setState(() {});
+              },
+            ),
+          )
+        ],
+      ),
     );
   }
 }

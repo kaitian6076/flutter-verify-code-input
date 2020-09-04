@@ -20,7 +20,7 @@ class _SingleCellWidgetState extends State<SingleCellWidget> {
   @override
   Widget build(BuildContext context) {
     return Stack(
-      alignment: AlignmentDirectional.center,
+      alignment: Alignment.center,
       children: <Widget>[
         Container(
             width: 40,
